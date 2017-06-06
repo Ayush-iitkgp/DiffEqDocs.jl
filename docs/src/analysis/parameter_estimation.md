@@ -233,7 +233,7 @@ Results of Optimization Algorithm
 
 and thus this algorithm was able to correctly identify all four parameters.
 
-### More Algorithms (Global Optimization) via MathProgBase Solvers
+## More Algorithms (Global Optimization) via MathProgBase Solvers
 
 The `build_loss_objective` function builds an objective function which is able
 to be used with MathProgBase-associated solvers. This includes packages like
