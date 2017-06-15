@@ -26,19 +26,19 @@ to the differential equation solver.
 ### The Loss Function
 
 ```julia
-loss_func(sol)
+loss(sol)
 ```
 
 is a function which reduces the problem's solution. While this is very
 flexible, a two convenience routines is included for fitting to data:
 
 ```julia
-L2DistLoss(t,data)
+L2Loss(t,data)
 CostVData(t,data;loss_func = L2DistLoss)
 ```
 
 where `t` is the set of timepoints which the data is found at, and
-`data` which are the values that are known. `L2DistLoss` is an optimized version
+`data` which are the values that are known. `L2Loss` is an optimized version
 of the L2-distance. In `CostVData`, one can choose any loss function from
 LossFunctions.jl or use the default of an L2 loss.
 
@@ -149,7 +149,7 @@ To build the objective function for Optim.jl, we simply call the `build_loss_obj
 funtion:
 
 ```julia
-cost_function = build_loss_objective(prob,Tsit5(),L2DistLoss(t,data),maxiters=10000)
+cost_function = build_loss_objective(prob,Tsit5(),L2Loss(t,data),maxiters=10000)
 ```
 
 Note that we set `maxiters` so that way the differential equation solvers would
